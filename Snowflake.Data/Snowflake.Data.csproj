@@ -1,26 +1,27 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net472</TargetFrameworks>
-    <Title>Snowflake.Data</Title>
-    <PackageId>Snowflake.Data</PackageId>
-    <PackageLicenseUrl>https://github.com/snowflakedb/snowflake-connector-net/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/snowflakedb/snowflake-connector-net</PackageProjectUrl>
+    <Title>Nearmap.Snowflake.Data</Title>
+    <PackageId>Nearmap.Snowflake.Data</PackageId>
+    <PackageLicenseUrl>https://github.com/nearmap/snowflake-connector-net/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/nearmap/snowflake-connector-net</PackageProjectUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageIconUrl>https://raw.githubusercontent.com/snowflakedb/snowflake-connector-net/master/Snowflake.Data/snowflake.ico</PackageIconUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/nearmap/snowflake-connector-net/master/Snowflake.Data/snowflake.ico</PackageIconUrl>
     <Description>Snowflake Connector for .NET</Description>
     <Company>Snowflake Computing, Inc</Company>
     <Product>Snowflake Connector for .NET</Product>
     <Authors>howryu, tchen</Authors>
     <Copyright>Copyright (c) 2012-2019 Snowflake Computing Inc. All rights reserved.</Copyright>
-    <Version>2.0.3</Version>
+    <Version>2.0.3.1</Version>
     <DebugType>Full</DebugType>
   </PropertyGroup>
-  
+
   <PropertyGroup Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(TargetFramework)', '^net\d'))">
 	<DefineConstants>NETFRAMEWORK</DefineConstants>
   </PropertyGroup>
-	
+
   <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0" PrivateAssets="All" />
     <PackageReference Include="AngleSharp" Version="0.15.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="log4net" Version="2.0.12" />
@@ -28,7 +29,7 @@
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.10.2" />
     <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
   </ItemGroup>
-  
+
   <ItemGroup Condition="'$(TargetFramework)' == 'net472'">
     <Reference Include="System.Net.Http" />
   </ItemGroup>
@@ -36,7 +37,7 @@
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="5.0.0" />
   </ItemGroup>
-  
+
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebugType>full</DebugType>
     <DebugSymbols>True</DebugSymbols>
@@ -46,13 +47,13 @@
     <DebugType>full</DebugType>
     <DebugSymbols>True</DebugSymbols>
   </PropertyGroup>
-  
+
   <PropertyGroup>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
-    <AssemblyVersion>2.0.3</AssemblyVersion>
+    <AssemblyVersion>2.0.3.1</AssemblyVersion>
   </PropertyGroup>
-  
+
   <ItemGroup>
     <Folder Include="Properties\" />
   </ItemGroup>
