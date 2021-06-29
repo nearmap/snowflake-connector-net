@@ -90,14 +90,14 @@ namespace Snowflake.Data.Core.Authenticator
         }
 
         /// <summary>
-        /// Specialized authenticator data to add to the login request. 
+        /// Specialized authenticator data to add to the login request.
         /// </summary>
         /// <param name="data">The login request data to update.</param>
         protected abstract void SetSpecializedAuthenticatorData(ref LoginRequestData data);
 
         /// <summary>
         /// Builds a simple login request. Each authenticator will fill the Data part with their
-        /// specialized information. The common Data attributes are already filled (clientAppId, 
+        /// specialized information. The common Data attributes are already filled (clientAppId,
         /// ClienAppVersion...).
         /// </summary>
         /// <returns>A login request to send to the server.</returns>
@@ -145,24 +145,6 @@ namespace Snowflake.Data.Core.Authenticator
             else if (type.Equals(ExternalBrowserAuthenticator.AUTH_NAME, StringComparison.InvariantCultureIgnoreCase))
             {
                 return new ExternalBrowserAuthenticator(session);
-            }
-            else if (type.Equals(KeyPairAuthenticator.AUTH_NAME, StringComparison.InvariantCultureIgnoreCase))
-            {
-                // Get private key path or private key from connection settings
-                if (!session.properties.TryGetValue(SFSessionProperty.PRIVATE_KEY_FILE, out var pkPath) &&
-                    !session.properties.TryGetValue(SFSessionProperty.PRIVATE_KEY, out var pkContent))
-                {
-                    // There is no PRIVATE_KEY_FILE defined, can't authenticate with key-pair
-                    string invalidStringDetail =
-                        "Missing required PRIVATE_KEY_FILE or PRIVATE_KEY for key pair authentication";
-                    var error = new SnowflakeDbException(
-                        SFError.INVALID_CONNECTION_STRING,
-                        new object[] { invalidStringDetail });
-                    logger.Error(error.Message, error);
-                    throw error;
-                }
-
-                return new KeyPairAuthenticator(session);
             }
             else if (type.Equals(OAuthAuthenticator.AUTH_NAME, StringComparison.InvariantCultureIgnoreCase))
             {
