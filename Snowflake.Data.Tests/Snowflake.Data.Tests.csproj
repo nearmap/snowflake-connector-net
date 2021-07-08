@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>netcoreapp2.2;net472</TargetFrameworks>
-    <RuntimeFrameworkVersion>2.2.8</RuntimeFrameworkVersion>
+    <RuntimeFrameworkVersion>2.2.6</RuntimeFrameworkVersion>
     <Title>Snowflake.Data.Tests</Title>
     <Description>Snowflake Connector for .NET</Description>
     <Company>Snowflake Computing, Inc</Company>

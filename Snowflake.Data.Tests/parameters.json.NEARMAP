@@ -1,0 +1,12 @@
+{
+  "testconnection": {
+    "SNOWFLAKE_TEST_USER": "BE_READONLY",
+    "SNOWFLAKE_TEST_PASSWORD": "XXXXXXXX",
+    "SNOWFLAKE_TEST_ACCOUNT": "rua84623",
+    "_SNOWFLAKE_TEST_WAREHOUSE": "TESTWH",
+    "SNOWFLAKE_TEST_DATABASE": "be_test_db",
+    "SNOWFLAKE_TEST_SCHEMA": "be_test",
+    "_SNOWFLAKE_TEST_ROLE": "BE_ROLE",
+    "SNOWFLAKE_TEST_HOST": "rua84623.us-east-1.snowflakecomputing.com"
+  }
+}
